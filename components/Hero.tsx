@@ -42,10 +42,10 @@ const Hero: React.FC = () => {
             
             <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
                <ul className="space-y-3 mb-8 text-gray-300">
-                  <li className="flex items-center"><Shield className="w-5 h-5 text-cyan-400 mr-2"/> AI 기반 위협 탐지 및 차단</li>
-                  <li className="flex items-center"><Zap className="w-5 h-5 text-cyan-400 mr-2"/> 하드웨어 가속 엔진의 탁월한 가용성</li>
-                  <li className="flex items-center"><Settings className="w-5 h-5 text-cyan-400 mr-2"/> 스마트하고 자동화된 정책 관리</li>
                   <li className="flex items-center"><Coins className="w-5 h-5 text-cyan-400 mr-2"/> 합리적 비용</li>
+                  <li className="flex items-center"><Settings className="w-5 h-5 text-cyan-400 mr-2"/> 스마트하고 자동화된 정책 관리</li>
+                  <li className="flex items-center"><Zap className="w-5 h-5 text-cyan-400 mr-2"/> 하드웨어 가속 엔진의 탁월한 가용성</li>
+                  <li className="flex items-center"><Shield className="w-5 h-5 text-cyan-400 mr-2"/> AI 기반 위협 탐지 및 차단</li>
                </ul>
               <button
                 onClick={scrollToPricing}
