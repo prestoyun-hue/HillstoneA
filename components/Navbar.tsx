@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             <button onClick={() => scrollTo('features')} className="text-gray-600 hover:text-hillstone-600 px-3 py-2 text-sm font-medium transition-colors">Why Hillstone</button>
-            <button onClick={() => scrollTo('references')} className="text-gray-600 hover:text-hillstone-600 px-3 py-2 text-sm font-medium transition-colors">주요 구축 사례</button>
+            <button onClick={() => scrollTo('references')} className="text-gray-600 hover:text-hillstone-600 px-3 py-2 text-sm font-medium transition-colors">레퍼런스</button>
             <button onClick={() => scrollTo('pricing')} className="bg-hillstone-600 hover:bg-hillstone-800 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-md transform hover:scale-105">
               모델 및 가격 보기
             </button>
@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
         <div className="md:hidden bg-white border-b border-gray-100">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <button onClick={() => scrollTo('features')} className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-hillstone-600 hover:bg-gray-50">Why Hillstone</button>
-            <button onClick={() => scrollTo('references')} className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-hillstone-600 hover:bg-gray-50">주요 구축 사례</button>
+            <button onClick={() => scrollTo('references')} className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-hillstone-600 hover:bg-gray-50">레퍼런스</button>
             <button onClick={() => scrollTo('pricing')} className="block w-full text-left px-3 py-2 text-base font-bold text-hillstone-600 hover:bg-gray-50">모델 및 가격 보기</button>
           </div>
         </div>
