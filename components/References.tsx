@@ -9,7 +9,7 @@ const References: React.FC = () => {
             주요 레퍼런스
           </h2>
           <p className="mt-4 text-lg text-gray-500">
-            공공, 금융, 기업 등 다양한 분야의 고객들이 Hillstone Networks를 선택했습니다.
+            다양한 분야의 고객들이 Hillstone Networks를 선택했습니다.
           </p>
         </div>
         
