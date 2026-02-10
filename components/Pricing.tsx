@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PRODUCTS } from '../constants';
-import { Server, Users, Activity, Lock, Target } from 'lucide-react';
+import { Server, Users, Activity, Lock, Target, X, ZoomIn } from 'lucide-react';
 
 interface PricingProps {
   onOpenModal: (product: string) => void;
 }
 
 const Pricing: React.FC<PricingProps> = ({ onOpenModal }) => {
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
+
   return (
     <section id="pricing" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,12 +42,18 @@ const Pricing: React.FC<PricingProps> = ({ onOpenModal }) => {
               </div>
 
               {/* Product Image Area */}
-              <div className="mb-6 bg-slate-50 rounded-lg p-4 flex items-center justify-center h-40 border border-slate-100 group-hover:border-hillstone-100 transition-colors">
+              <div 
+                className="mb-6 bg-slate-50 rounded-lg p-4 flex items-center justify-center h-40 border border-slate-100 group-hover:border-hillstone-100 transition-colors cursor-zoom-in relative group/image"
+                onClick={() => setPreviewImage(product.image)}
+              >
                 <img 
                   src={product.image} 
                   alt={product.name} 
                   className="max-h-full max-w-full object-contain mix-blend-multiply"
                 />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity bg-black/5 rounded-lg">
+                  <ZoomIn className="w-8 h-8 text-hillstone-600 opacity-75" />
+                </div>
               </div>
 
               <div className="mb-6">
@@ -106,6 +114,27 @@ const Pricing: React.FC<PricingProps> = ({ onOpenModal }) => {
           ))}
         </div>
       </div>
+
+      {/* Image Preview Modal */}
+      {previewImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 animate-in fade-in duration-200"
+          onClick={() => setPreviewImage(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2"
+            onClick={() => setPreviewImage(null)}
+          >
+            <X className="w-10 h-10" />
+          </button>
+          <img 
+            src={previewImage} 
+            alt="Product Detail" 
+            className="max-w-full max-h-[90vh] object-contain rounded shadow-2xl scale-100 animate-in zoom-in-95 duration-200 bg-white"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 };

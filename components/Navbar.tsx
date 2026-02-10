@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             <button onClick={() => scrollTo('features')} className="text-gray-600 hover:text-hillstone-600 px-3 py-2 text-sm font-medium transition-colors">Why Hillstone</button>
-            <button onClick={() => scrollTo('references')} className="text-gray-600 hover:text-hillstone-600 px-3 py-2 text-sm font-medium transition-colors">레퍼런스</button>
+            <button onClick={() => scrollTo('references')} className="text-gray-600 hover:text-hillstone-600 px-3 py-2 text-sm font-medium transition-colors">주요 레퍼런스</button>
             <button onClick={() => scrollTo('pricing')} className="bg-hillstone-600 hover:bg-hillstone-800 text-white px-5 py-2 rounded-full text-sm font-bold transition-all shadow-md transform hover:scale-105">
               모델 및 가격 보기
             </button>

@@ -4,7 +4,7 @@ export const PRODUCTS: ProductSpec[] = [
   {
     id: 'a200',
     name: 'SG-6000-A200',
-    image: 'https://placehold.co/600x400/f8fafc/002855?text=A200+Desktop',
+    image: 'http://www.estc.co.kr/event/images/H_A200.png',
     formFactor: 'Desktop',
     fwThroughput: '1 Gbps',
     concurrentSessions: '300,000',
@@ -20,7 +20,7 @@ export const PRODUCTS: ProductSpec[] = [
   {
     id: 'a1000',
     name: 'SG-6000-A1000',
-    image: 'https://placehold.co/600x400/f8fafc/002855?text=A1000+Desktop',
+    image: 'http://www.estc.co.kr/event/images/H_A1000.png',
     formFactor: 'Desktop (High-end)',
     fwThroughput: '4 Gbps',
     concurrentSessions: '300,000',
@@ -36,7 +36,7 @@ export const PRODUCTS: ProductSpec[] = [
   {
     id: 'a1100',
     name: 'SG-6000-A1100',
-    image: 'https://placehold.co/600x400/f8fafc/002855?text=A1100+High-End',
+    image: 'http://www.estc.co.kr/event/images/H_A1100.png',
     formFactor: 'Desktop (High-end)',
     fwThroughput: '5 Gbps',
     concurrentSessions: '300,000',
@@ -52,7 +52,7 @@ export const PRODUCTS: ProductSpec[] = [
   {
     id: 'a2000',
     name: 'SG-6000-A2000',
-    image: 'https://placehold.co/600x400/f8fafc/002855?text=A2000+1U+Rack',
+    image: 'http://www.estc.co.kr/event/images/H_A2000.png',
     badge: 'Advanced Defense Pack',
     formFactor: '1U Rackmount',
     fwThroughput: '5 Gbps',
