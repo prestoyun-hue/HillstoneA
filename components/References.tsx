@@ -15,7 +15,7 @@ const References: React.FC = () => {
         
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12 flex items-center justify-center overflow-hidden">
              <img 
-               src="https://file-s3.paas-ta.org/3642721f-8178-4a6c-9477-90c427301c27/2b17f54c-1e27-4a7b-8452-969435471d24/ef332f7a-297d-419a-992d-93721b5855e9.png" 
+               src="http://www.estc.co.kr/event/images/H_Ref.png" 
                alt="Customer References"
                className="max-w-full h-auto object-contain hover:scale-[1.01] transition-transform duration-500"
              />
