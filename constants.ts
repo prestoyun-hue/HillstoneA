@@ -51,7 +51,7 @@ export const PRODUCTS: ProductSpec[] = [
   },
   {
     id: 'a2000',
-    name: 'SG-6000-A2000',
+    name: 'SG-6000-A2000-AD',
     image: 'http://www.estc.co.kr/event/images/H_A2000.png',
     badge: 'Advanced Defense Pack',
     formFactor: '1U Rackmount',

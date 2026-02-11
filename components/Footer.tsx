@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
           <div className="col-span-1 lg:col-span-2">
             <h3 className="text-hillstone-900 text-lg font-bold mb-4">Hillstone Networks KOREA operated by ESTC</h3>
             <p className="text-sm text-gray-600 mb-4 max-w-sm">
-              우리는 엔터프라이즈 보안 솔루션의 리더, Hillstone Networks의 공식 총판입니다. 
+              우리는 엔터프라이즈 보안 솔루션의 리더, Hillstone Networks의 공식 파트너입니다. 
               최적의 보안 아키텍처 설계부터 기술 지원까지 함께합니다.
             </p>
           </div>

@@ -8,6 +8,9 @@ interface ContactModalProps {
   selectedProduct: string;
 }
 
+// TODO: Google Sheet > 확장 프로그램 > Apps Script에 배포된 웹 앱 URL을 여기에 입력하세요.
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxfKXIICfYw2Z4r0E6CjA5O-s4qfXc_8pQUx_phg-bZOME72d3RgEHOLItFK1kCB0aFg/exec';
+
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, selectedProduct }) => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -20,14 +23,18 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, selectedPr
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      // If the selected product is the old A2000 name (passed from elsewhere), normalize it, 
+      // or simply use the incoming prop which should be updated via constants.ts
       setFormData(prev => ({ ...prev, productInterest: selectedProduct }));
     } else {
       document.body.style.overflow = 'unset';
       setIsSuccess(false);
+      setErrorMessage(null);
     }
     return () => { document.body.style.overflow = 'unset'; };
   }, [isOpen, selectedProduct]);
@@ -37,17 +44,51 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, selectedPr
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage(null);
     
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Create FormData object for Google Apps Script
+      const data = new FormData();
+      data.append('name', formData.name);
+      data.append('email', formData.email);
+      data.append('phone', formData.phone);
+      data.append('company', formData.company);
+      data.append('productInterest', formData.productInterest);
+      data.append('message', formData.message);
+      data.append('timestamp', new Date().toISOString());
+
+      // Check if URL is configured
+      if (GOOGLE_SCRIPT_URL.includes('YOUR_SCRIPT_ID_HERE')) {
+        // Fallback simulation for demo purposes if URL is not set
+        console.warn('Google Script URL not configured. Simulating success.');
+        await new Promise(resolve => setTimeout(resolve, 1500));
+      } else {
+        // Actual POST request to Google Apps Script
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          body: data,
+          mode: 'no-cors', // Important for Google Apps Script to avoid CORS errors on simple POSTs
+        });
+      }
+
       setIsSuccess(true);
-      // In a real app, send data to sales@estc.co.kr via backend API
-      console.log('Form Submitted:', formData);
-    }, 1500);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        productInterest: 'General',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Submission Error:', error);
+      setErrorMessage('오류가 발생했습니다. 잠시 후 다시 시도해주시거나 전화로 문의 부탁드립니다.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -146,7 +187,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, selectedPr
                     <option value="SG-6000-A200">SG-6000-A200</option>
                     <option value="SG-6000-A1000">SG-6000-A1000</option>
                     <option value="SG-6000-A1100">SG-6000-A1100</option>
-                    <option value="SG-6000-A2000">SG-6000-A2000 (AD Pack)</option>
+                    <option value="SG-6000-A2000-AD">SG-6000-A2000-AD</option>
                   </select>
                 </div>
 
@@ -161,6 +202,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, selectedPr
                     placeholder="궁금하신 점을 남겨주세요."
                   ></textarea>
                 </div>
+
+                {errorMessage && (
+                  <p className="text-red-600 text-sm mt-2">{errorMessage}</p>
+                )}
 
                 <div className="pt-2">
                   <button
