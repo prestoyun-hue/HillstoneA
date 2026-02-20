@@ -18,7 +18,7 @@ const Features: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-base text-hillstone-600 font-semibold tracking-wide uppercase">Why Hillstone?</h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            전 세계가 인정한 보안 기술력
+            업계 최고의 가성비, 전 세계가 인정한 보안 기술력
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
             글로벌 리서치 기관과 엔터프라이즈 고객이 증명한 Hillstone Networks의 가치를 확인하세요.
