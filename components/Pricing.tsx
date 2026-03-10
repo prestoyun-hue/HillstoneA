@@ -65,6 +65,7 @@ const Pricing: React.FC<PricingProps> = ({ onOpenModal }) => {
                 </div>
                 <div className="flex items-baseline mt-1">
                    <span className="text-3xl font-extrabold text-hillstone-900" id={product.priceId}>₩{product.price}</span>
+                   <span className="ml-2 text-xs font-medium text-gray-500">부가세 포함</span>
                 </div>
               </div>
               
